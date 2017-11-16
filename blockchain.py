@@ -15,7 +15,7 @@ class Blockchain(object):
     # Create the genesis block
     self.new_block(previous_hash=1, proof=100)
 
-  def new_block(self, proof, previous_hash):
+  def new_block(self, proof, previous_hash=None):
     '''
     # Creates a new Block in the Blockchain
 
@@ -148,7 +148,7 @@ def mine():
     )
 
   # Forge the new Block by adding it to the chain
-  block = blockchain.new_block(proof)
+  block = blockchain.new_block(proof, last_block['previous_hash'])
 
   response = {
     'message': "New Block Forged",
